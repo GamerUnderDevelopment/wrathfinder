@@ -1,6 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Cinzel", serif;
+  --font-body: "Crimson Text", serif;
+  --font-ui: "Inter", sans-serif;
+  --font-sans: var(--font-ui);
+
+  --color-background: hsl(30 20% 85%);
+  --color-foreground: hsl(20 15% 12%);
+  --color-card: hsl(33 25% 88%);
+  --color-card-foreground: hsl(20 15% 12%);
+
+  --color-primary: hsl(270 45% 40%);
+  --color-primary-foreground: hsl(35 30% 92%);
+  --color-primary-dim: hsl(270 20% 50%);
+  --color-primary-glow: hsl(270 50% 55%);
+
+  --color-secondary: hsl(30 15% 78%);
+  --color-secondary-foreground: hsl(20 15% 20%);
+
+  --color-muted: hsl(30 12% 75%);
+  --color-muted-foreground: hsl(20 10% 40%);
+
+  --color-accent: hsl(345 50% 32%);
+  --color-accent-foreground: hsl(0 0% 98%);
+  --color-accent-light: hsl(345 40% 40%);
+
+  --color-surface: hsl(270 25% 22%);
+  --color-surface-light: hsl(270 18% 30%);
+
+  --color-border: hsl(270 20% 55%);
+  --color-input: hsl(33 20% 82%);
+
+  --radius: 0.375rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary-dim);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-ui {
+    font-family: var(--font-ui);
+  }
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  .bg-surface-light {
+    background-color: var(--color-surface-light);
+  }
+  .section-header {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsl(35 30% 90%);
+    font-size: 0.75rem;
+  }
+  .fantasy-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-primary-dim),
+      transparent
+    );
+  }
+  .text-primary-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-primary-glow)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
