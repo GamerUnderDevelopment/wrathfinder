@@ -9,6 +9,12 @@ const Navbar = () => {
         width={40}
         height={40}
       />
+      <Image
+        src="/images/logo-wordmark.png"
+        alt="Wrathfinder wordmark"
+        width={160}
+        height={40}
+      />
     </nav>
   );
 };
