@@ -13,5 +13,9 @@ describe("Navbar", () => {
     const wordmark = screen.getByRole("img", { name: /wrathfinder wordmark/i });
     expect(wordmark).toBeInTheDocument();
   });
-  it.skip("should render the navigation bar", () => {});
+  it("should render the navigation bar", () => {
+    render(<Navbar />);
+    const nav = screen.getByRole("navigation");
+    expect(nav).toBeInTheDocument();
+  });
 });
