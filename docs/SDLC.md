@@ -75,7 +75,23 @@ All feature branches MUST follow this commit pattern:
    - No implementation at all
    - Allows team to see full test scope upfront
 
-2. **Odd Commits: Test Descriptor - RED**
+2. **Second Commit: Component/Implementation Skeleton**
+
+   ```
+   [TICKET-ID] Skeleton: [Component/module name] scaffold
+
+   Create minimal scaffold for the component or module under test.
+   No behavior implemented — just enough structure for tests to
+   compile and fail for specification reasons, not technical reasons.
+
+   Closes #123
+   ```
+
+   - Creates the file with the minimal structure (empty component, empty function, etc.)
+   - Tests now fail because behavior is not implemented (RED for the right reason)
+   - No logic, no markup beyond the bare minimum to compile
+
+3. **Odd Commits: Test Descriptor - RED**
 
    ```
    [TICKET-ID] Test: [Test descriptor name] - RED
@@ -91,7 +107,7 @@ All feature branches MUST follow this commit pattern:
    - Run tests: test FAILS (expected)
    - Commit message clearly identifies which test + RED state
 
-3. **Even Commits: Implementation - GREEN**
+4. **Even Commits: Implementation - GREEN**
 
    ```
    [TICKET-ID] Implement: [Feature name] - GREEN
@@ -112,13 +128,14 @@ All feature branches MUST follow this commit pattern:
 
 ```
 1. [PF-42] Skeleton: All tests for ability score modifier calculation
-2. [PF-42] Test: Calculate modifier for strength 10 - RED
-3. [PF-42] Implement: Return 0 for ability score 10 - GREEN
-4. [PF-42] Test: Calculate modifier for strength 18 - RED
-5. [PF-42] Implement: Return +4 for ability score 18 - GREEN
-6. [PF-42] Test: Calculate modifier for strength 8 - RED
-7. [PF-42] Implement: Return -1 for ability score 8 - GREEN
-8. [PF-42] Refactor: Consolidate modifier calculation logic - ALL GREEN
+2. [PF-42] Skeleton: Ability score modifier function scaffold
+3. [PF-42] Test: Calculate modifier for strength 10 - RED
+4. [PF-42] Implement: Return 0 for ability score 10 - GREEN
+5. [PF-42] Test: Calculate modifier for strength 18 - RED
+6. [PF-42] Implement: Return +4 for ability score 18 - GREEN
+7. [PF-42] Test: Calculate modifier for strength 8 - RED
+8. [PF-42] Implement: Return -1 for ability score 8 - GREEN
+9. [PF-42] Refactor: Consolidate modifier calculation logic - ALL GREEN
 ```
 
 **Why This Pattern:**
