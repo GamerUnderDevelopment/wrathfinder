@@ -8,5 +8,9 @@ describe("Landing Page /", () => {
     const cta = screen.getByRole("link", { name: /create a character/i });
     expect(cta).toBeInTheDocument();
   });
-  it.skip("should render a call to action to sign in", () => {});
+  it("should render a call to action to sign in", () => {
+    render(<Home />);
+    const cta = screen.getByRole("link", { name: /sign in/i });
+    expect(cta).toBeInTheDocument();
+  });
 });
