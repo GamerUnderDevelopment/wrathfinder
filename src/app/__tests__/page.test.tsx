@@ -3,8 +3,10 @@ import { render, screen } from "@testing-library/react";
 import Home from "../page";
 
 describe("Landing Page /", () => {
-  it.skip("should render the navigation bar", () => {
-    //
+  it("should render the navigation bar", () => {
+    render(<Home />);
+    const navbar = screen.getByRole("navigation", { name: /primary/i });
+    expect(navbar).toBeInTheDocument();
   });
   it("should render a call to action to create a character", () => {
     render(<Home />);
