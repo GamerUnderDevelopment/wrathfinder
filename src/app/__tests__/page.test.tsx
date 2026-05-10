@@ -13,6 +13,11 @@ describe("Landing Page /", () => {
     const cta = screen.getByRole("link", { name: /create a character/i });
     expect(cta).toBeInTheDocument();
   });
+  it.skip("should render the call to action to sign up", () => {
+    render(<Home />);
+    const cta = screen.getByRole("link", { name: /sign up/i });
+    expect(cta).toBeInTheDocument();
+  });
   it("should render a call to action to sign in", () => {
     render(<Home />);
     const cta = screen.getByRole("link", { name: /sign in/i });
