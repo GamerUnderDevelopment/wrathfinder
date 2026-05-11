@@ -1,19 +1,25 @@
 // @vitest-environment node
-import { afterEach, describe, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { db } from "~/server/db";
+import { characters } from "~/server/db/schema";
 import { characterRepository } from "~/server/db/character";
 
 describe("Character", () => {
   afterEach(async () => {
-    await db.character.deleteMany();
+    await db.delete(characters);
   });
+
   it("should create a character with a name", async () => {
-    const character = await characterRepository.create({
-      name: "Aldric " 
-    });
+    const character = await characterRepository.create({ name: "Test Character" });
+    expect(character).toHaveProperty("id");
+    expect(character.name).toBe("Test Character");
   });
-  it.skip("should generate a UUID on creation", () => {
-    //
+  it("should generate a UUID on creation", async () => {
+    const character = await characterRepository.create({ name: "Aldric" });
+    expect(character.characterUuid).toBeDefined();
+    expect(character.characterUuid).toMatch(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+    );
   });
   it.skip("should default status to active", () => {
     //
