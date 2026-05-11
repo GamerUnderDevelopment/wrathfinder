@@ -21,10 +21,14 @@ describe("Character", () => {
       /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
     );
   });
-  it.skip("should default status to active", () => {
-    //
+  it("should default status to active", async () => {
+    const character = await characterRepository.create({ name: "Aldric" });
+    expect(character.status).toBeDefined();
+    expect(character.status).toBe("active");
   });
-  it.skip("should allow owner to be null", () => {
-    //
+  it("should allow owner to be null", async () => {
+    const character = await characterRepository.create({ name: "Aldric" });
+    expect(character.ownerUserId).toBeDefined();
+    expect(character.ownerUserId).toBeNull();
   });
 });
